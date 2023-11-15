@@ -5,6 +5,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 use JWTAuth;
 
 use Illuminate\Http\Request;
@@ -12,6 +14,11 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     //
+    public function showLoginForm()
+    {
+        return Inertia::render('Login', [
+        ]);
+    }
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login', 'register']]); //login, register methods won't go through the api guard
