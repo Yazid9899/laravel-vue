@@ -14,11 +14,7 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     //
-    public function showLoginForm()
-    {
-        return Inertia::render('Login', [
-        ]);
-    }
+
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login', 'register']]); //login, register methods won't go through the api guard

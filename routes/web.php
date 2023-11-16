@@ -17,9 +17,15 @@ use Inertia\Inertia;
 
 Route::get('/login', function () {
     return Inertia::render('Login', [
-        'register-url' => route('Register')
     ]);
-});
+})->name('login');
+
+Route::get('/register', function () {
+    return Inertia::render('Register', [
+    ]);
+})->name('register');
+
+Route::get('/home', [UserController::class, 'getAllUsers'])->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
